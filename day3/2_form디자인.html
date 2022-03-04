@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<form action=""> 
+    <table>
+        <tr>
+            <td>
+                <label for="name">이름</label>
+            </td>
+            <td><input type="text" id="name" name="name"></td>
+        </tr>
+        <tr>
+            <td><label for="password">패스워드</label></td>
+            <td><input type="password" id="password" name="password"></td>
+        </tr> 
+        <tr>
+            <td><label for="email">이메일</label></td>
+            <td><input type="email" id="email" name="email"></td>
+        </tr> 
+        <tr>
+            <td><label for="age">나이</label></td>
+            <td><input type="number" value="30" min="20" max="40" id="age" name="age"></td>
+        </tr>
+        <tr>
+            <td><label for="addr">주소</label></td>
+            <td>
+                 <select name="addr" id="addr">
+                       <option value="서울">서울</option> 
+                       <option value="인천">인천</option> 
+                       <option value="대전" selected="selected">대전</option> <!-- 초기 선택 설정 -->
+                       <option value="광주">광주</option> 
+                       <option value="부산">부산</option> 
+                 </select>   
+            </td>
+        </tr>
+        <tr>
+            <td>성별</td>
+            <td> 
+                <input type="radio" name="gender" checked="checked" id="male" value="male">
+                <label for="male">남자</label>
+                <input type="radio" name="gender" id="female" value="female">
+                <label for="female">여자</label>
+            </td>
+        </tr>
+        <tr>
+            <td>취미</td>
+            <td>
+                <input type="checkbox" id="hobby1" name="hobby" value="축구">
+                <label for="hobby1">축구</label>
+                <input type="checkbox" id="hobby2" name="hobby" value="농구">
+                <label for="hobby2">농구</label>
+                <input type="checkbox" id="hobby3" name="hobby" value="스키">
+                <label for="hobby3">스키</label>
+                <input type="checkbox" id="hobby4" name="hobby" value="달리기">
+                <label for="hobby4">달리기</label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">  
+                <input type="submit" value="가입하기1">
+                <button type="submit">가입하기2</button>
+                <input type="reset" value="다시쓰기1"> <!-- 입력요소의 내용이 초기화 됩니다. -->
+                <button type="reset">다시쓰기2</button>
+            </td>
+        </tr>
+
+    </table>
+</form>
+</body>
+</html>
