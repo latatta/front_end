@@ -35,12 +35,27 @@
             text-align: center;
             color:white;
         }
+        button{
+            padding: 7px 15px;
+            margin: 7px;
+            background-color: rgb(194, 14, 104);
+            border: none;
+            color: white;
+            font-size: 1.1em;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        /* 선택자 : 마우스가 놓여질때 변경될 css */
+        button:hover{
+            background-color: rgb(75, 2, 39);
+        }
 
     </style>
 
 </head>
 <body>
 <div style="width:70%;margin:auto;"><!-- table 을 포함하는 박스 -->
+<h3 style="text-align: center;">회원등록</h3>    
 <form action=""> 
     <table  style="width: 100%;">  <!-- 부모태그 div 너비의 100% -->
         <tr>   
@@ -96,11 +111,11 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2">  
-                <input type="submit" value="가입하기1">
-                <button type="submit">가입하기2</button>
-                <input type="reset" value="다시쓰기1"> <!-- 입력요소의 내용이 초기화 됩니다. -->
-                <button type="reset">다시쓰기2</button>
+            <td colspan="2" style="text-align: center;">  <!-- 이 td의 내용은 가운데 정렬합니다. -->  
+                <!-- <input type="submit" value="가입하기1"> -->
+                <button type="submit">가입하기</button>
+                <!-- <input type="reset" value="다시쓰기1"> --> <!-- 입력요소의 내용이 초기화 됩니다. -->
+                <button type="reset">다시쓰기</button>
             </td>
         </tr>
 
