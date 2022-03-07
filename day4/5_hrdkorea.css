@@ -50,7 +50,6 @@ header{
     left:0;
     top:0; 
     margin-top: -20px;
-    width: 100%;
     z-index: 10;
     margin-left: -10px;
 }
@@ -62,6 +61,7 @@ section {
      background-color: cadetblue;
      color: white;
      padding: 20px;
+     margin-left: -10px;
  }
 
 a{
@@ -74,7 +74,7 @@ a{
     border-radius: 4px;
 }
 
-td{
+td,th{
     border: 1px dotted gray;
 }
 td.col1_title {
