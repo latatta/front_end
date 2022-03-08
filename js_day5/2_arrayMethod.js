@@ -40,11 +40,14 @@ const del = fruits2.splice(4, 1, "레몬", "키위");
 console.log(fruits2)                        //??? 메소드의 두번째 인자 1 -> 중간에 데이터 넣을때 1개를 삭제했어요.
                                             //(7) ['Banana', 'Orange', 'Lemon', 'Kiwi', '레몬', '키위', 'Mango']
 console.log(del)                //splice 메소드는 삭제한 데이터를 리턴합니다.    
-//특정 데이터들을 삭제하는 용도만으로 활용할수 있습니다.
-fruits2.splice(2,2);
+//**특정 데이터들을 삭제하는 용도만으로 활용할수 있습니다.
+fruits2.splice(2,2);                        //2번 인덱스부터 2개를 삭제하고 새로운 데이터 추가는 안함.
 console.log(fruits2)                        //(5) ['Banana', 'Orange', '레몬', '키위', 'Mango']                
-
-
+console.log('9.slice')
+const fruits3 = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+const citrus = fruits3.slice(1,3);            //fruits 배열의 인덱스 1번부터 (3-1)개를 잘라내기로 새로운 배열을 리턴한다.
+console.log(citrus)         
+console.log(fruits3.slice(3))             //두번째 인자값이 없을때는 3번부터 끝가지 잘라내기로 새로운배열 리턴
 
 
 
