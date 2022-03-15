@@ -83,7 +83,8 @@
         </tr> 
         <tr>
             <td><label for="age" class="title">나이</label></td>
-            <td><input type="number" value="30" min="20" max="40" id="age" name="age"></td>
+            <td><input type="number" value="30" id="age" name="age"></td>
+            <!-- min,max 설정 삭제 후 함수로 체크합니다. -->
         </tr>
         <tr>
             <td><label for="addr" class="title">주소</label></td>
@@ -144,39 +145,45 @@
         const email_ = frm.email;    
         const password_= frm.password;
         let isValid=true;
+        const temp = email_.value;      //자주 사용될 것은 변수로 저장.
         if(name_.value == "") {
             alert('이름 입력은 필수입니다.')
             name_.focus();
             isValid=false;   /* 적절하지 못한값에 대한 표시 */
-        }
-
+        } else  
+         /* 패스워드 길이 검사 : 패스워드 길이는 6글자 이상 */
+         if(password_.value.length < 6) {
+            alert('패스워드는 6글자 이상입니다.')
+            password_.focus();      //포커스(커서) 이동하기
+            isValid=false;
+        } else 
         if(email_.value=="") {
             alert('이메일 입력은 필수 입니다.')
             email_.focus();
             isValid=false;
             
-        }
-
-        /* 패스워드 길이 검사 : 패스워드 길이는 6글자 이상 */
-        if(password_.value.length < 6) {
-            alert('패스워드는 6글자 이상입니다.')
-            password_.focus();      //포커스(커서) 이동하기
-            isValid=false;
-        }
-
+        } else
+        if(!(temp.endsWith('.net') || temp.endsWith('.com')) || temp.indexOf('@') <= 0) {               
+           //1)과 2)를 동시에 만족하는 경우가 통과이므로 그 반대로 조건식 작성하세요.
+           alert('이메일 형식이 잘못되었습니다.')
+           email_.focus();
+           isValid=false;
+       } 
+       
         /* 이메일 검사 : 1) .net 또는 .com으로 끝나야한다. 
         //    2) @를 포함해야한다.단, 문자위치 2번째 이후에  (논리연산: && ,|| , !)*/
-        const temp = email_.value;      //자주 사용될 것은 변수로 저장.
         
        // temp.endsWith('.net')  , temp.endsWith('.com') , temp.indexOf('@')==-1 (찾는 문자열 없을때 -1)
        // 참고 : a && b 의 반대 조건식은 !a || !b   , a || b의 반대 조건식은 !a && !b 
        // 예시 : 1)과 2)를 동시에 만족하는 조건식
        //       (temp.endsWith('.net') || temp.endsWith('.com')) && temp.indexOf('@') > 0
-       if(!(temp.endsWith('.net') || temp.endsWith('.com')) || temp.indexOf('@') <= 0) {               
-           //1)과 2)를 동시에 만족하는 경우가 통과이므로 그 반대로 조건식 작성하세요.
-           alert('이메일 형식이 잘못되었습니다.')
-           email_.focus();
-           isValid=false;
+       //실제 이메일 주소 형식을 검사하는 것은 복잡한 조건이며 이것은 '정규식'이라는 것으로 검사합니다.
+       //각자 해보세요. : @ 가 2개인지 검사하기. 첫번째 @ 이후로 문자열을 추출해서 그 중에 @ 이 있으면 안됩니다.
+
+
+       /* 나이가 20세 미만이면 alert 으로 청소년이라고 메시지 출력.(단, isValid는 변경안함)*/
+       if(frm.age.value < 20) {
+           alert('청소년 입니다.');
        }
 
         if(isValid)
