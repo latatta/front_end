@@ -198,9 +198,12 @@
            isValid=false;
        }
 
-        if(isValid)
+        if(isValid) {
             alert('유효성 검사 통과!!')
-        else 
+            frm.action = '4_success.html';   //유효성 통과완료되면 서버로 데이터 전달하기.
+                        //처리할 서버의 url(action값)을 아직 몰라요. 그래서 success.html로 이동합니다.
+            frm.submit() ;          // 서버로 데이터 전달하기 동작                                     
+        }else 
             alert('유효성 검사 실패!!')            
     }
 
