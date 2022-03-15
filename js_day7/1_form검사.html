@@ -14,7 +14,13 @@
         <button onclick="data_check()">데이터 확인</button>
                     <!--    ㄴ form 태그 입력요소 값들을 자바스크립트에서 확인하는 테스트 -->
     </form>
-
+    <form id="momo">  <!-- forms[index?] -->
+        <!-- onclick 속성값으로 함수가 아니고 자바스크립트 명령어 1개 사용 가능합니다. -->
+        <input type="button" onclick="alert(document.forms[1].id)" value="momo's form" />   <!--  .forms[2].elements[0] -->
+    </form>
+    <form id="sana">  <!-- forms[index?] -->
+        <input type="button" onclick="alert(document.forms[2].elements[0].value)" value="sana's form" />   <!--  .forms[2].elements[0] -->
+    </form>
     <script>
        // const data_check = function() { }  :함수 다른형식 참고하세요.
 
@@ -36,7 +42,10 @@
             const $email2 = document.frmUser.email;
             console.log('입력 user 이름2 : ' + $user2.value)
             console.log('입력 email2 : ' + $email2.value)
-            
+            if($user.value.length <= 0) {       //length 프로퍼티 : 문자열의 길이
+                alert(`이름을 입력하세요. 필수입니다.(${$user.value.length})`)
+            }
+            console.log(`이름 길이 : ${$user.value.length}`)
         }   
     </script>
 </body>
