@@ -125,7 +125,11 @@
                 <button type="submit">가입하기</button>
                 <!-- <input type="reset" value="다시쓰기1"> --> <!-- 입력요소의 내용이 초기화 됩니다. -->
                 <button type="reset">다시쓰기</button>
-                <button onclick="valid_check()">유효성검사</button> <!-- 데이터의 효용성이 있는지 검사 -->
+        <!-- button 태그를 사용하면 기본이 submit : 
+             버튼을 누르면 함수실행하고 기존데이터 지워짐, type="button" 으로 해야 submit 안합니다.-->
+             <button onclick="valid_check()" type="button">유효성검사</button> <!-- 데이터의 효용성이 있는지 검사 -->
+        <!-- 함수만 실행하고 기존데이터 남아 있습니다. -->
+        <!-- <input type="button" onclick="valid_check()" value="유효성검사"> -->
             </td>
         </tr>
 
@@ -133,7 +137,53 @@
 </form>
 </div>
 <script>
-    
+    function valid_check() {
+        /* 필수입력 이름,이메일로 합니다. */
+        const frm = document.forms[0];
+        const name_= frm.name;  /* name 속성 확인!! */
+        const email_ = frm.email;    
+        const password_= frm.password;
+        let isValid=true;
+        if(name_.value == "") {
+            alert('이름 입력은 필수입니다.')
+            name_.focus();
+            isValid=false;   /* 적절하지 못한값에 대한 표시 */
+        }
+
+        if(email_.value=="") {
+            alert('이메일 입력은 필수 입니다.')
+            email_.focus();
+            isValid=false;
+            
+        }
+
+        /* 패스워드 길이 검사 : 패스워드 길이는 6글자 이상 */
+        if(password_.value.length < 6) {
+            alert('패스워드는 6글자 이상입니다.')
+            password_.focus();      //포커스(커서) 이동하기
+            isValid=false;
+        }
+
+        /* 이메일 검사 : 1) .net 또는 .com으로 끝나야한다. 
+        //    2) @를 포함해야한다.단, 문자위치 2번째 이후에  (논리연산: && ,|| , !)*/
+        const temp = email_.value;      //자주 사용될 것은 변수로 저장.
+        
+       // temp.endsWith('.net')  , temp.endsWith('.com') , temp.indexOf('@')==-1 (찾는 문자열 없을때 -1)
+       // 참고 : a && b 의 반대 조건식은 !a || !b   , a || b의 반대 조건식은 !a && !b 
+       // 예시 : 1)과 2)를 동시에 만족하는 조건식
+       //       (temp.endsWith('.net') || temp.endsWith('.com')) && temp.indexOf('@') > 0
+       if(!(temp.endsWith('.net') || temp.endsWith('.com')) || temp.indexOf('@') <= 0) {               
+           //1)과 2)를 동시에 만족하는 경우가 통과이므로 그 반대로 조건식 작성하세요.
+           alert('이메일 형식이 잘못되었습니다.')
+           email_.focus();
+           isValid=false;
+       }
+
+        if(isValid)
+            alert('유효성 검사 통과!!')
+        else 
+            alert('유효성 검사 실패!!')            
+    }
 
 </script>
 </body>
