@@ -81,6 +81,10 @@
             const addrf = frm.addr
             const gradef = frm.grade.value
             const grades = ['A','B','C','D']
+            const cityf = frm.city_code.value;
+            const temp = parseInt(cityf);   
+            //*cityf 에 시작문자가 숫자가 아니면 정수변환이 안되고 결과값이 NaN 가됩니다.*
+            console.log(cityf +':'+ temp)   //테스트용입니다.
             let isValid=true;
             if(namef.value == ""){
               alert('이름을 입력해주세요')
@@ -107,6 +111,12 @@
                 //console.log(grades.indexOf(gradef))
                 alert('A,B,C,D 중 하나만 입력해주십시오');    //테스트를 위해 D도 추가합니다.
                 isValid= false;
+            } else
+            if(isNaN(temp) || temp<10 || temp > 99 || cityf.length !=2){  
+                //NaN : Not a Number , 자바스크립트의 데이터값 중 하나입니다.실행결과로만 도출되는 데이터
+                //isNaN은 temp 변수값이 NaN인지 검사합니다. 
+                alert('2자리 숫자로만 입력해야 합니다.')
+                isValid=false
             }
 
             if(isValid){
