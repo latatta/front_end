@@ -74,6 +74,15 @@
     </footer>
 
     <script>
+        //여기에 작성되는 코드는 브라우저에 문서가 렌더링될때 바로 적용됩니다.
+        //오늘 날짜가 자동으로 가입일자에 출력되기: 형식은 yyyyMMdd -> 구글폴더에 올려주세요.
+        const reg = document.forms[0].reg_date;
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = (today.getMonth()+1).toString().padStart(2,0);
+        const day = today.getDate().toString().padStart(2,0);
+        reg.value=[year,month,day].join('');
+
         function valid_check() {
             const frm = document.forms[0]
             const namef = frm.name

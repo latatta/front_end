@@ -6,7 +6,7 @@ console.log(new Date())
 console.log(new Date(2002,05,01))  //날짜 지정 : Sat Jun 01 2002 00:00:00 GMT+0900 (대한민국 표준시)  -> 6월
 //날짜 시간 지정 :년도,월,일,시,분,초
 console.log(new Date(2022,02,16,9,30,25))  //Wed Mar 16 2022 09:30:25 GMT+0900(3월)
-//getTime 메소드  : 1970년 1월1일 기준으로 지나온 시간을 ms 단위로 계산하여 리턴- 타임스탬프(timestamp)
+//getTime 메소드  : 1970년 1월1일 기준으로 지나온 시간을 ms 단위로 계산하여 리턴- 타임스탬프(timestamp) 값
 console.log(new Date().getTime())
 //세계표준시
 console.log(new Date().toUTCString())
