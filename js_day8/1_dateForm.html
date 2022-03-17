@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 처리조건 : 1)숙박일수와 입실날짜를 선택하면 퇴실날짜가 자동으로 설정/출력
+                   2)입실날짜와 퇴실날짜를 선택하면 숙박일수가 계산됩니다.
+                   3)입실날짜는 퇴실날짜 보다 이전 날짜이어야 합니다.
+    -->
+    <!-- form 태그내의 입력요소값을 식별자가 name속성입니다. 
+         id속성값으로 특정 태그요소를 구별하기 위한 값입니다.-->
+    <form action="">
+        숙박일수 : 
+        <select name="days">
+            <option value="0">선택</option>
+            <option value="1">1박</option>
+            <option value="2">2박</option>
+            <option value="3">3박</option>
+            <option value="4">4박</option>
+        </select><br>
+        입실날짜 : <input type="date" name="time1"><br>
+        퇴실날짜 : <input type="date" name="time2"><br>
+        <span id="printDays"></span>  <!-- 숙박일수 계산값을 표시할 예정. -->
+        <br>
+        <button>제출</button>  <!-- type값은 기본이 submit-->
+        <button type="button">확인</button>
+    </form>
+</body>
+</html>
