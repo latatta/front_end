@@ -15,7 +15,7 @@
          id속성값으로 특정 태그요소를 구별하기 위한 값입니다.-->
     <form action="">
         숙박일수 : 
-        <select name="days">
+        <select name="days" onchange="daySelect()"><!-- change이벤트 :요소값이 변경될때 발생 -->
             <option value="0">선택</option>
             <option value="1">1박</option>
             <option value="2">2박</option>
@@ -29,5 +29,16 @@
         <button>제출</button>  <!-- type값은 기본이 submit-->
         <button type="button">확인</button>
     </form>
+    <script>
+        //전역변수 선언
+        const days = document.forms[0].days;
+        const start = document.forms[0].time1;
+        const end = document.forms[0].time2;
+        function daySelect(){       //select 태그 change 이벤트에 대한 실행함수.변경전에 실행됩니다.
+            alert(days.value);
+            alert([start.value,end.value].join(' ~ '))
+        }
+
+    </script>
 </body>
 </html>

@@ -28,6 +28,26 @@ today.setFullYear(today.getFullYear()-2);       //현재 today에서 2년전
 console.log(today)
 
 //오늘날짜에서 15일 이후
+today.setDate(today.getDate()+15)
+console.log(today)
 
+//출생일에서 3000일 기념일
+let mybirth = new Date(1999,1,1)  //내 생일 : 1999년 2월1일
+console.log('나의 생일 : ' + mybirth.toLocaleString())
+mybirth.setDate(mybirth.getDate()+3000)
+console.log('탄생 3000일 기념일 : ' + mybirth.toLocaleString() )
 
+//실기문제 : 오늘날짜를 년도 4자리, 월2자리, 일2자리
+const today2 = new Date();
+const year = today2.getFullYear();
+const month = today2.getMonth()+1;
+const date_ = today2.getDate();
+console.log(year+month+date_)
+console.log(year.toString() + month.toString().padStart(2,0) + date_.toString().padStart(2,0))
 
+const month2 = (today2.getMonth()+1).toString().padStart(2,0);
+const date2 = today2.getDate().toString().padStart(2,0);
+//*필요한 값으로 배열을 만들고 join메소드로 연결시켜 문자열을 생성합니다.(연결기호는 없으므로 '')*
+console.log([year,month2,date2].join(''))
+console.log([year,month2,date2].join('-'))
+//기억하기 : 배열 -> 문자열로 join , 문자열->배열로 split
